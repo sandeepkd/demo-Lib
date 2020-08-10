@@ -1,0 +1,21 @@
+{
+  "name": "my-lib",
+  "version": "0.0.1",
+  "schematics": "./schematics/collection.json",
+  "ng-add": {
+    "save": "devDependencies"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/tsc -p tsconfig.schematics.json",
+    "copy:collection": "cp schematics/collection.json ../../dist/my-lib/schematics/collection.json",
+    "postbuild": "npm run copy:collection && cp -r ./src/assets ../../dist/my-lib/assets"
+  },
+  "peerDependencies": {
+    "@angular/common": "^9.0.7",
+    "@angular/core": "^9.0.7",
+    "tslib": "^1.10.0"
+  },
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  }
+}
